@@ -1,0 +1,41 @@
+.mainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px;
+    
+}
+.category-heading,
+.no-news-found {
+  color: grey;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.category-heading:hover,
+.no-news-found:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.loadBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 350px;
+}
+
+.image-container {
+    height: 200px; 
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}

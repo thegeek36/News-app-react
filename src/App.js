@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Stories from './components/Stories';
+import Pagination from './components/Pagination';
+import NavBar from './components/NavBar';
+import { useState } from 'react';
 
 function App() {
+  const [category, setCategory] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleCategoryChange = (newCategory) => {
+    setCategory(newCategory);
+    setSearchQuery(''); // Reset search query when category changes
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setCategory(''); // Reset category when search query is set
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar onCategoryChange={handleCategoryChange} onSearch={handleSearch} />
+      <Stories category={category} searchQuery={searchQuery} />
     </div>
   );
 }
