@@ -4,20 +4,20 @@ import "./News.css"; // Assuming your CSS file is named "News.css"
 function Stories({ category, searchQuery }) {
   const [mynews, setMyNews] = useState([]);
   const [apiUrl, setApiUrl] = useState('');
-
+  const key = '1b72f4ef67b54ce1b25b4b51f08fdbd1'
   useEffect(() => {
     // Construct the API URL based on category and searchQuery 
     if (searchQuery && category) {
-        setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&category=${category}?q=${searchQuery}&apiKey=1b72f4ef67b54ce1b25b4b51f08fdbd1`);
+        setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&category=${category}?q=${searchQuery}&apiKey=${key}`);
     } 
     else if(searchQuery)
     {
-        setApiUrl(`https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=1b72f4ef67b54ce1b25b4b51f08fdbd1`);
+        setApiUrl(`https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${key}`);
     }
     else if (category) {
-      setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=1b72f4ef67b54ce1b25b4b51f08fdbd1`);
+      setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${key}`);
     } else {
-        setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&apiKey=1b72f4ef67b54ce1b25b4b51f08fdbd1`);
+        setApiUrl(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${key}`);
         //setMyNews([]);
     }
   }, [category, searchQuery]);
